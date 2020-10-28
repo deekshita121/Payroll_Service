@@ -14,3 +14,9 @@ Primary Key (id)                                #Setting Id As Primary Key
 );
 Drop Table employee_payroll;                    #Drop the table
 Describe employee_payroll;                      #Descripe the table
+
+#Usecase 3
+Insert into employee_payroll(name, salary, start) values      #Inserting Records
+('Diya', 100000.00, '2018-01-03'),
+('Ayesha', 150000.00, '2019-11-03'),
+('Dev', 200000.00, '2020-04-06');
