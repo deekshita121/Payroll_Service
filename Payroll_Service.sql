@@ -28,3 +28,9 @@ Select * from employee_payroll;                                  #Retrieving rec
 Select salary from employee_payroll where name = 'Diya';         #Retrieving salary of Diya
 Select * from employee_payroll                                   #Retrieving records within the dates
 where start between cast('2018-01-01' as date) and date(now());
+
+ #Usecase 6
+ Alter table employee_payroll Add gender Char(1) After name;     #Adding gender field
+ update employee_payroll set gender = 'M' WHERE  name = 'Dev';   #updating gender with name
+ Update employee_payroll set gender = 'F' where  name = 'Ayesha' or name ='Diya';
+
