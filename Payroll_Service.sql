@@ -23,3 +23,8 @@ Insert into employee_payroll(name, salary, start) values      #Inserting Records
 
 #Usecase 4
 Select * from employee_payroll;                                  #Retrieving records
+
+#Usecase 5
+Select salary from employee_payroll where name = 'Diya';         #Retrieving salary of Diya
+Select * from employee_payroll                                   #Retrieving records within the dates
+where start between cast('2018-01-01' as date) and date(now());
