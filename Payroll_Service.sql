@@ -41,3 +41,9 @@ Select gender, sum(salary) from employee_payroll group by gender;               
 Select gender, min(salary) from employee_payroll group by gender;               #Min of salary by gender
 Select gender, max(salary) from employee_payroll group by gender;               #Max of salary by gender
 Select gender, count(salary) from employee_payroll group by gender;             #Count of salary by gender
+
+#Usecase8                                                                       #Add phone, address, department fields
+Alter table employee_payroll Add phone int unsigned after name;
+Alter table employee_payroll Add address varchar(150) after gender;
+Alter table employee_payroll Add department varchar(150) after address;
+Alter table employee_payroll Alter address set default "TBD";
