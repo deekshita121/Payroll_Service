@@ -54,3 +54,9 @@ Alter table employee_payroll Add deductions double not null after basicPay;
 Alter table employee_payroll Add taxablePay double not null after deductions;
 Alter table employee_payroll Add incomeTax double not null after taxablePay;
 Alter table employee_payroll add netPay double not null after incomeTax;
+
+#Usecase10                                                                      #Add 2 departments for Teresa 
+Insert into employee_payroll(name, phone, gender, address, department, basicpay, deductions, taxablePay, incomeTax, netPay, start) values
+('Diya', 918288451, 'F', 'Banglore', 'Sales', 400000.00, 100000.00, 300000.00, 100000.00, 200000.00, '2018-01-03' );
+update employee_payroll set department = "Marketing" where id = 1;
+
