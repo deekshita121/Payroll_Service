@@ -60,3 +60,42 @@ Insert into employee_payroll(name, phone, gender, address, department, basicpay,
 ('Diya', 918288451, 'F', 'Banglore', 'Sales', 400000.00, 100000.00, 300000.00, 100000.00, 200000.00, '2018-01-03' );
 update employee_payroll set department = "Marketing" where id = 1;
 
+#Usecase11                                                                      #Implementing er diagram
+create table company (
+    company_id int unsigned not null primary key,
+    company_name varchar(50) not null
+);
+
+create table employee (
+    employee_id int unsigned not null,
+    name varchar(50) not null,
+    company_id int unsigned,
+    phone_number varchar(50) not null,
+    address varchar(250) not null,
+    gender char(1),
+    start_date date not null,
+    foreign key (company_id) references company (company_id)
+);
+
+create table department (
+    department_id int  not  null primary key,
+    department_name varchar(50) not null
+);
+
+create table payroll (
+    employee_id int unsigned not null,
+    basic_pay double not null,
+    deductions double not null,
+    taxable_pay double not null,
+    income_tax double not null,
+    net_pay double not null,
+    foreign key (employee_id) references employee (employee_id)
+);
+
+create table employee_department (
+    employee_id int unsigned not null,
+    department_id int not null,
+    foreign key (employee_id) references employee (employee_id),
+    foreign key (department_id) references department (department_id)
+);
+
