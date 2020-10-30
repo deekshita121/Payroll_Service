@@ -47,3 +47,10 @@ Alter table employee_payroll Add phone int unsigned after name;
 Alter table employee_payroll Add address varchar(150) after gender;
 Alter table employee_payroll Add department varchar(150) after address;
 Alter table employee_payroll Alter address set default "TBD";
+
+#Usecase9                                                                       #Add basic pay, deductions, taxable pay, income tax, net pay
+Alter table employee_payroll rename column salary to basicPay;
+Alter table employee_payroll Add deductions double not null after basicPay;
+Alter table employee_payroll Add taxablePay double not null after deductions;
+Alter table employee_payroll Add incomeTax double not null after taxablePay;
+Alter table employee_payroll add netPay double not null after incomeTax;
