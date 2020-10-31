@@ -99,3 +99,52 @@ create table employee_department (
     foreign key (department_id) references department (department_id)
 );
 
+#inserting
+Insert into company values (1, 'CapG');
+
+Insert into employee values (101, 'Bill', 1 , 9876543210, 'Maharashtra', 'M', '2018-01-03');
+Insert into employee values (102, 'Terisa', 1 , 8765432109, 'Delhi', 'F', '2018-02-04');
+Insert into employee values (103, 'Charlie', 1 , 7654321098, 'Karnataka', 'M', '2018-03-05');
+Insert into employee values (104, 'Mark', 1 , 7689543210, 'Telangana', 'M', '2018-02-06');
+
+Insert into department values (50, 'Sales');
+Insert into department values (51, 'Marketing');
+Insert into department values (52, 'HR');
+
+Insert into payroll values (101,1000000.00, 100000.00, 900000.00, 100000.00, 800000.00);
+Insert into payroll values (102,2000000.00, 100000.00, 1900000.00, 100000.00, 1800000.00);
+Insert into payroll values (103,3000000.00, 100000.00, 2900000.00, 100000.00, 2800000.00);
+Insert into payroll values (104,4000000.00, 100000.00, 3900000.00, 100000.00, 3800000.00);
+
+Insert into employee_department values (101,50);
+Insert into employee_department values (101,51);
+Insert into employee_department values (102,51);
+Insert into employee_department values (103,50);
+Insert into employee_department values (102,50);
+
+#Usecase12                                                                            #Retireving data
+
+select * from employee;
+select * from payroll;
+select * from employee_department;
+select * from department;
+
+select employee.name, payroll.net_pay from payroll
+join employee on payroll.employee_id = employee.employee_id
+where employee.name = 'Bill';
+
+select gender, sum(payroll.basic_pay) from employee
+join payroll on payroll.employee_id = employee.employee_id
+group by employee.gender;
+
+select gender, min(payroll.basic_pay) from employee
+join payroll on payroll.employee_id = employee.employee_id
+group by employee.gender;
+
+select gender, max(payroll.basic_pay) from employee
+join payroll on payroll.employee_id = employee.employee_id
+group by employee.gender;
+
+select gender, count(payroll.basic_pay) from employee
+join payroll on payroll.employee_id = employee.employee_id
+group by employee.gender;
